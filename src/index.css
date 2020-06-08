@@ -24,3 +24,11 @@ color:white !important;
 height: 3rem !important;
 width: 2rem !important;
 }
+
+#signOut{
+  color: white;
+  background-color: #6D9DC2;
+  border-radius: 10px;
+  border-width: 0.1px;
+  padding: 10px;
+}
