@@ -1,9 +1,12 @@
 import React from 'react';
+import Hero from '../Hero/Hero';
 
 const Landing = () => (
-  <div>
-    <h1>Landing</h1>
-  </div>
+ <Hero hero = "defaultHero"/>
 );
 
 export default Landing;
+
+Hero.defaultProps = {
+  hero: "defaultHero"
+}
