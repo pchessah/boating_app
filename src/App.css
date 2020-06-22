@@ -120,7 +120,7 @@ h6 {
 .nav-links a {
   display: block;
   text-decoration: none;
-  padding: 1rem 0;
+  padding: 0rem 0;
   color: var(--mainBlack);
   transition: var(--mainTransition);
   text-align: center;
@@ -158,12 +158,13 @@ h6 {
 /* Hero */
 .defaultHero,
 .roomsHero {
-  min-height: calc(100vh - 66px);
-  background: url("https://cdn.pixabay.com/photo/2016/08/14/18/27/sailing-boat-1593613_960_720.jpg")
+  min-height: calc(105vh - 66px);
+  background: url("https://images.pexels.com/photos/1106423/pexels-photo-1106423.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=650&w=940")
     center/cover no-repeat;
   display: flex;
   align-items: center;
   justify-content: center;
+  margin-top: -45px;
 }
 .roomsHero {
   background-image: url("https://cdn.pixabay.com/photo/2013/07/18/20/25/fishing-164977_960_720.jpg");

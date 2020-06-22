@@ -13,7 +13,8 @@ code {
 }
 
 .nav-link{
-  color: white;
+  color: black;
+  list-style-type: none !important;
 }
 
 .nav-link:hover{
@@ -26,9 +27,32 @@ width: 2rem !important;
 }
 
 #signOut{
-  color: white;
+  color: black;
   background-color: #6D9DC2;
   border-radius: 10px;
   border-width: 0.1px;
   padding: 10px;
+}
+
+.nav-item{
+  padding: 10px;
+  
+}
+
+#signIn{
+  display: flex;
+  flex-direction: column;
+}
+
+#signIn input{
+  padding: 7px;
+  border-radius: 3px;
+  border: none;
+  margin: 10px 5px;
+}
+
+#signIn button{
+  padding: 7px;
+  margin: 10px 5px;
+  border: none;
 }

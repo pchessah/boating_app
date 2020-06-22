@@ -4,11 +4,16 @@ import { Link, withRouter } from "react-router-dom";
 import { withFirebase } from "../Firebase";
 import * as ROUTES from "../../constants/routes";
 import * as ROLES from "../../constants/roles";
+import Hero from "../Hero/Hero";
+import Banner from "../Banner/Banner";
 
 const SignUpPage = () => (
   <div>
-    <h1>SignUp</h1>
-    <SignUpForm />
+    <Hero>
+      <Banner title="Sign Up">
+        <SignUpForm />
+      </Banner>
+    </Hero>
   </div>
 );
 
@@ -17,7 +22,7 @@ const INITIAL_STATE = {
   email: "",
   passwordOne: "",
   passwordTwo: "",
-  isAdmin: false,
+  isBoatOwner: false,
   error: null,
 };
 
@@ -29,12 +34,11 @@ class SignUpFormBase extends Component {
   }
 
   onSubmit = (event) => {
-    const { username, email, passwordOne, isAdmin } = this.state;
+    const { username, email, passwordOne, isBoatOwner } = this.state;
     const roles = {};
 
-
-    if (isAdmin) {
-      roles[ROLES.ADMIN] = ROLES.ADMIN
+    if (isBoatOwner) {
+      roles[ROLES.BOATOWNER] = ROLES.BOATOWNER;
     }
 
     this.props.firebase
@@ -77,7 +81,7 @@ class SignUpFormBase extends Component {
       email,
       passwordOne,
       passwordTwo,
-      isAdmin,
+      isBoatOwner,
       error,
     } = this.state;
 
@@ -88,7 +92,7 @@ class SignUpFormBase extends Component {
       username === "";
 
     return (
-      <form onSubmit={this.onSubmit}>
+      <form id="signIn" onSubmit={this.onSubmit}>
         <input
           name="username"
           value={username}
@@ -118,11 +122,11 @@ class SignUpFormBase extends Component {
           placeholder="Confirm Password"
         />
         <label>
-          Admin:
+          Boat Owner:
           <input
-            name="isAdmin"
+            name="isBoatOwner"
             type="checkbox"
-            checked={isAdmin}
+            checked={isBoatOwner}
             onChange={this.onChangeCheckbox}
           />
         </label>
@@ -138,7 +142,7 @@ class SignUpFormBase extends Component {
 
 const SignUpLink = () => (
   <p>
-    Don't have an account? <Link to={ROUTES.SIGN_UP}>Sign Up</Link>
+    Don't have an account? <Link style={{color:"white"}} to={ROUTES.SIGN_UP}>Sign Up</Link>
   </p>
 );
 

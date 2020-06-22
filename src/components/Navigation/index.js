@@ -21,7 +21,7 @@ const Navigation = () => (
 );
 
 const NavigationAuth = ({ authUser }) => (
-  <ul class="navbar navbar-dark bg-dark">
+  <ul class="navigationBar navbar-nav navbar navbar-expand-lg navbar-light bg-light">
     <li class="nav-item active">
       <Link class="nav-link" to={ROUTES.LANDING}>
         <RiShipLine class="navbar-brand" />
@@ -38,9 +38,9 @@ const NavigationAuth = ({ authUser }) => (
       </Link>
     </li>
 
-    {!!authUser.roles[ROLES.ADMIN] && (
+    {!!authUser.roles[ROLES.BOATOWNER] && (
       <li class="nav-item active">
-        <Link to={ROUTES.ADMIN}>Admin</Link>
+        <Link to={ROUTES.BOATOWNER}>Boat Owner</Link>
       </li>
     )}
 
@@ -51,7 +51,7 @@ const NavigationAuth = ({ authUser }) => (
 );
 
 const NavigationNonAuth = () => (
-  <ul class="navbar navbar-dark bg-dark">
+  <ul class="navigationBar navbar-nav navbar navbar-expand-lg navbar-light bg-light">
     <li class="nav-item active">
       <Link class="nav-link" to={ROUTES.LANDING}>
         Home

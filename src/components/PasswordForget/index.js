@@ -1,18 +1,23 @@
-import React, { Component } from 'react';
-import { Link } from 'react-router-dom';
+import React, { Component } from "react";
+import { Link } from "react-router-dom";
 
-import { withFirebase } from '../Firebase';
-import * as ROUTES from '../../constants/routes';
+import { withFirebase } from "../Firebase";
+import * as ROUTES from "../../constants/routes";
+import Hero from "../Hero/Hero";
+import Banner from "../Banner/Banner";
 
 const PasswordForgetPage = () => (
   <div>
-    <h1>PasswordForget</h1>
-    <PasswordForgetForm />
+    <Hero>
+      <Banner title="Reset Password">
+        <PasswordForgetForm />
+      </Banner>
+    </Hero>
   </div>
 );
 
 const INITIAL_STATE = {
-  email: '',
+  email: "",
   error: null,
 };
 
@@ -23,7 +28,7 @@ class PasswordForgetFormBase extends Component {
     this.state = { ...INITIAL_STATE };
   }
 
-  onSubmit = event => {
+  onSubmit = (event) => {
     const { email } = this.state;
 
     this.props.firebase
@@ -31,24 +36,24 @@ class PasswordForgetFormBase extends Component {
       .then(() => {
         this.setState({ ...INITIAL_STATE });
       })
-      .catch(error => {
+      .catch((error) => {
         this.setState({ error });
       });
 
     event.preventDefault();
   };
 
-  onChange = event => {
+  onChange = (event) => {
     this.setState({ [event.target.name]: event.target.value });
   };
 
   render() {
     const { email, error } = this.state;
 
-    const isInvalid = email === '';
+    const isInvalid = email === "";
 
     return (
-      <form onSubmit={this.onSubmit}>
+      <form id="signIn" onSubmit={this.onSubmit}>
         <input
           name="email"
           value={this.state.email}
@@ -68,7 +73,7 @@ class PasswordForgetFormBase extends Component {
 
 const PasswordForgetLink = () => (
   <p>
-    <Link to={ROUTES.PASSWORD_FORGET}>Forgot Password?</Link>
+    <Link style={{color:"white"}} to={ROUTES.PASSWORD_FORGET}>Forgot Password?</Link>
   </p>
 );
 
