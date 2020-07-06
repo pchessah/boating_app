@@ -6,3 +6,4 @@ export const ACCOUNT = '/account';
 export const BOATOWNER = '/boat-owner';
 export const PASSWORD_FORGET = '/pw-forget';
 export const VESSELS = "/vessels"
+export const SINGLEVESSEL = "/vessels/:slug"

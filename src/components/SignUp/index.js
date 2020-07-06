@@ -121,7 +121,7 @@ class SignUpFormBase extends Component {
           type="password"
           placeholder="Confirm Password"
         />
-        <label>
+        {/* <label>
           Boat Owner:
           <input
             name="isBoatOwner"
@@ -129,7 +129,7 @@ class SignUpFormBase extends Component {
             checked={isBoatOwner}
             onChange={this.onChangeCheckbox}
           />
-        </label>
+        </label> */}
         <button disabled={isInvalid} type="submit">
           Sign Up
         </button>
