@@ -21,22 +21,21 @@ class VesselProvider extends Component {
     });
   }
 
-
-  formatData(items) {    
+  formatData(items) {
     let tempItems = items.map((item) => {
       let id = item.sys.id;
       let images = item.fields.images.map((image) => image.fields.file.url);
-      let vessel = { ...item.fields, images, id }; 
-        
+      let vessel = { ...item.fields, images, id };
+
       return vessel;
     });
-    return tempItems
+    return tempItems;
   }
 
   getVessel = (slug) => {
     let tempVessels = [...this.state.vessels];
     const vessel = tempVessels.find((vessel) => vessel.slug === slug);
-    return vessel
+    return vessel;
   };
 
   render() {
@@ -50,6 +49,16 @@ class VesselProvider extends Component {
   }
 }
 
-export { VesselContext, VesselProvider, VesselConsumer };
-
 const VesselConsumer = VesselContext.Consumer;
+
+export function withVesselConsumer(Component) {
+  return function ConsumerWrapper(props) {
+    return (
+      <VesselConsumer>
+        {(value) => <Component {...props} context={value} />}
+      </VesselConsumer>
+    );
+  };
+}
+
+export { VesselContext, VesselProvider, VesselConsumer };

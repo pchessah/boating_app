@@ -2,6 +2,7 @@ import React from 'react';
 import Hero from '../Hero/Hero';
 import Banner from "../Banner/Banner"
 import { Link } from 'react-router-dom';
+import VesselsContainer from '../VesselsContainer/VesselsContainer';
  
 const Vessels = () => {
     return (
@@ -13,6 +14,7 @@ const Vessels = () => {
                    </Link>
                </Banner>
                </Hero>
+               <VesselsContainer/>
         </div>
     );
 }
