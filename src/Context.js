@@ -1,5 +1,6 @@
 import React, { Component } from "react";
-import items from "./data";
+// import items from "./data";
+import Client from "./Contentful";
 
 const VesselContext = React.createContext();
 class VesselProvider extends Component {
@@ -19,20 +20,33 @@ class VesselProvider extends Component {
     pets: false,
   };
 
+  getData = async () => {
+    try {
+      let response = await Client.getEntries({
+        content_type: "beachResortRoomBoiler",
+      });
+      let vessels = this.formatData(response.items);
+      let featuredVessels = vessels.filter(
+        (vessel) => vessel.featured === true
+      );
+      let maxPrice = Math.max(...vessels.map((item) => item.price));
+      let maxSize = Math.max(...vessels.map((item) => item.size));
+      this.setState({
+        vessels,
+        featuredVessels,
+        sortedVessels: vessels,
+        loading: false,
+        price: maxPrice,
+        maxPrice,
+        maxSize,
+      });
+    } catch (error) {
+      console.log(error);
+    }
+  };
+
   componentDidMount() {
-    let vessels = this.formatData(items);
-    let featuredVessels = vessels.filter((vessel) => vessel.featured === true);
-    let maxPrice = Math.max(...vessels.map((item) => item.price));
-    let maxSize = Math.max(...vessels.map((item) => item.size));
-    this.setState({
-      vessels,
-      featuredVessels,
-      sortedVessels: vessels,
-      loading: false,
-      price: maxPrice,
-      maxPrice,
-      maxSize,
-    });
+    this.getData();
   }
 
   formatData(items) {
@@ -114,9 +128,7 @@ class VesselProvider extends Component {
 
     //change state
     this.setState({
-      
-      sortedVessels: tempVessels
-      
+      sortedVessels: tempVessels,
     });
   };
 
