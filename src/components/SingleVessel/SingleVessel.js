@@ -1,7 +1,6 @@
 import React, { Component } from "react";
 import { VesselContext } from "../../Context";
 import { Link } from "react-router-dom";
-import Hero from "../Hero/Hero";
 import Banner from "../Banner/Banner";
 import defaultBcg from "../../images/room-1.jpeg";
 import StyledHero from "../StyledHero/StyledHero";

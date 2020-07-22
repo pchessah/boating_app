@@ -1,10 +1,10 @@
-import React from "react";
-import { withRouter } from "react-router-dom";
-import { compose } from "recompose";
+import React from 'react';
+import { withRouter } from 'react-router-dom';
+import { compose } from 'recompose';
 
-import AuthUserContext from "./context";
-import { withFirebase } from "../Firebase";
-import * as ROUTES from "../../constants/routes";
+import AuthUserContext from './context';
+import { withFirebase } from '../Firebase';
+import * as ROUTES from '../../constants/routes';
 
 const withAuthorization = condition => Component => {
   class WithAuthorization extends React.Component {
@@ -27,6 +27,7 @@ const withAuthorization = condition => Component => {
       return (
         <AuthUserContext.Consumer>
           {authUser =>
+          console.log(authUser) &&
             condition(authUser) ? <Component {...this.props} /> : null
           }
         </AuthUserContext.Consumer>

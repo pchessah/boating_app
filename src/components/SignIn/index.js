@@ -6,6 +6,7 @@ import { SignUpLink } from "../SignUp";
 import { PasswordForgetLink } from "../PasswordForget";
 import { withFirebase } from "../Firebase";
 import * as ROUTES from "../../constants/routes";
+
 import Hero from "../Hero/Hero";
 import Banner from "../Banner/Banner";
 
@@ -24,7 +25,7 @@ const SignInPage = () => (
 
 const INITIAL_STATE = {
   email: "",
-  password: "",
+  password: "", 
   error: null,
 };
 
@@ -37,6 +38,7 @@ class SignInFormBase extends Component {
 
   onSubmit = (event) => {
     const { email, password } = this.state;
+   
 
     this.props.firebase
       .doSignInWithEmailAndPassword(email, password)
@@ -54,6 +56,8 @@ class SignInFormBase extends Component {
   onChange = (event) => {
     this.setState({ [event.target.name]: event.target.value });
   };
+
+ 
 
   render() {
     const { email, password, error } = this.state;
@@ -79,6 +83,7 @@ class SignInFormBase extends Component {
         <button disabled={isInvalid} type="submit">
           Sign In
         </button>
+       
 
         {error && <p>{error.message}</p>}
       </form>

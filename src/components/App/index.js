@@ -14,6 +14,7 @@ import "../../App.css";
 import Vessels from "../Pages/Vessels";
 import Error from "../Error";
 import SingleVessel from "../SingleVessel/SingleVessel";
+import BoatOwner from "../BoatOwner";
 
 const App = () => (
   <Router>
@@ -32,7 +33,8 @@ const App = () => (
         />
         <Route exact path={ROUTES.HOME} component={HomePage} />
         <Route exact path={ROUTES.ACCOUNT} component={AccountPage} />
-        <Route exact path={ROUTES.BOATOWNER} component={AdminPage} />
+        <Route exact path={ROUTES.BOATOWNER} component={BoatOwner} />
+        <Route exact path={ROUTES.ADMIN} component={AdminPage} />
         <Route exact path={ROUTES.VESSELS} component={Vessels} />
         <Route exact path={ROUTES.SINGLEVESSEL} component={SingleVessel}/>
         <Route component={Error} />

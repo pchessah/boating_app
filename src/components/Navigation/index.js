@@ -38,8 +38,14 @@ const NavigationAuth = ({ authUser }) => (
       </Link>
     </li>
 
+    {!!authUser.roles[ROLES.ADMIN] && (
+      <li>
+        <Link to={ROUTES.ADMIN}>Admin</Link>
+      </li>
+    )}
+    
     {!!authUser.roles[ROLES.BOATOWNER] && (
-      <li class="nav-item active">
+      <li>
         <Link to={ROUTES.BOATOWNER}>Boat Owner</Link>
       </li>
     )}

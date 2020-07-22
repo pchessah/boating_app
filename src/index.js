@@ -7,11 +7,11 @@ import Firebase, { FirebaseContext } from "./components/Firebase";
 import { VesselProvider } from "./Context";
 
 ReactDOM.render(
-  <VesselProvider>
-    <FirebaseContext.Provider value={new Firebase()}>
+  <FirebaseContext.Provider value={new Firebase()}>
+    <VesselProvider>
       <App />
-    </FirebaseContext.Provider>
-  </VesselProvider>,
+    </VesselProvider>
+  </FirebaseContext.Provider>,
   document.getElementById("root")
 );
 
