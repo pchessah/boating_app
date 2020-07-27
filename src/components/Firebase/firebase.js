@@ -46,7 +46,7 @@ class Firebase {
 
             // default empty roles
             if (!dbUser.roles) {
-              dbUser.roles = [];
+              dbUser.roles = {};
             }
 
             // merge auth and db user
